@@ -82,7 +82,6 @@ header.site { display: flex; justify-content: space-between; align-items: center
 input[type="number"], .pair select {
     font: inherit;
     font-size: 1.25rem;
-    font-variant-numeric: tabular-nums;
     padding: 10px 14px;
     border: 1.5px solid var(--line);
     border-radius: var(--radius);
@@ -139,9 +138,7 @@ input[type="number"]:invalid { border-color: #C2410C; }
     font-weight: 800;
     line-height: 1;
     letter-spacing: -0.02em;
-    font-variant-numeric: tabular-nums;
 }
-.small { display: block; margin-top: 4px; color: var(--panel-ink-2); font-variant-numeric: tabular-nums; }
 
 .each { margin: 24px 0 0; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.14); color: var(--panel-ink-2); font-size: 0.9375rem; }
 

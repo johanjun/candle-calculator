@@ -276,8 +276,8 @@ if (typeof document !== 'undefined') {
         }
 
         const num = (v, d) => new Intl.NumberFormat(lang, { minimumFractionDigits: d, maximumFractionDigits: d }).format(v);
-        const g = (v) => num(v, v >= 100 ? 0 : 1) + ' g';
-        const oz = (v) => num(v / G_PER_OZ, 2) + ' oz';
+        const g = (v) => num(v, v >= 100 ? 0 : 1) + '\u00a0g'; // no-break space keeps the unit on the number's line
+        const oz = (v) => num(v / G_PER_OZ, 2) + '\u00a0oz';
 
         update = () => {
             const ok = form.checkValidity();
