@@ -42,11 +42,12 @@ test_calc.js     # node test_calc.js — 계산식 + 4개 언어 키 일치 검�
 
 ```bash
 export PATH="/opt/homebrew/bin:$PATH"   # wrangler는 Node 22+ 필요
-npx wrangler pages project create candle-calculator --production-branch main   # 최초 1회
 npx wrangler pages deploy public --project-name candle-calculator --branch main --commit-dirty=true --commit-message "ASCII only message"
 ```
 
 - 커밋 메시지는 ASCII만 (한글이면 UTF-8 에러).
+- 프로젝트는 2026-11-06 생성 완료(candle-calculator-30u.pages.dev). wrangler 4.158이 Pages 명령을 Workers로 넘기다 실패해서 생성 때만 `--force`를 썼다. 배포에는 붙이지 않는다.
+- Pages는 `/privacy.html`을 `/privacy`로 308 리디렉션한다. sitemap·canonical은 확장자 없는 주소를 쓴다.
 - `--branch main`이 아니면 preview 배포라 커스텀 도메인에 안 붙는다.
 - 배포 후 안 바뀐 것처럼 보이면 롤백 전에 `?_cb=$(date +%s)` 또는 `*.pages.dev` URL로 캐시부터 의심.
 
