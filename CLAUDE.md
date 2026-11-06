@@ -34,11 +34,9 @@ test_calc.js     # node test_calc.js — 계산식 + 4개 언어 키 일치 검�
 
 ## 도메인
 
-현재 모든 절대 URL이 `candle-calculator.pages.dev` 기준. 커스텀 도메인 확정 후 일괄 치환:
-
-```bash
-grep -rl candle-calculator.pages.dev public | xargs sed -i '' 's|candle-calculator.pages.dev|새도메인|g'
-```
+- candle-calculator.com. Namecheap에서 2026-11-06 등록, 1년, 자동 갱신(갱신가 $15.98/년), 무료 개인정보 보호.
+- 네임서버는 Cloudflare로 위임, Pages 프로젝트 candle-calculator에 커스텀 도메인으로 연결.
+- 도메인을 바꿀 일이 생기면 `grep -rl candle-calculator.com public | xargs sed -i '' 's|candle-calculator.com|새도메인|g'`
 
 ## 배포 (Cloudflare Pages, direct upload)
 
@@ -57,5 +55,4 @@ npx wrangler pages deploy public --project-name candle-calculator --branch main 
 - index.html `<head>`에만 adsbygoogle 스크립트(ca-pub-9629441899884488, 테니스와 같은 계정). 수동 광고 유닛은 없다.
 - 승인 후 수동 유닛을 넣는다면 실제 slot ID로 만들고, 테니스의 교훈대로 컨테이너는 `height: 0` 기본 숨김.
 - EEA·영국·스위스 트래픽에는 Google 인증 CMP가 필요하다. 자체 쿠키 배너 대신 AdSense 콘솔의 "개인정보 보호 및 메시지" GDPR 메시지를 켠다. privacy.html이 그 동의 절차를 전제로 쓰여 있다.
-- pages.dev 서브도메인은 AdSense 사이트 승인을 받지 못한다. 커스텀 도메인이 필요.
 - GA4는 미연동. 넣으려면 테니스 ID를 재사용하지 말고 새 속성을 만들 것.
