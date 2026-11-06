@@ -55,5 +55,11 @@ npx wrangler pages deploy public --project-name candle-calculator --branch main 
 
 - index.html `<head>`에만 adsbygoogle 스크립트(ca-pub-9629441899884488, 테니스와 같은 계정). 수동 광고 유닛은 없다.
 - 승인 후 수동 유닛을 넣는다면 실제 slot ID로 만들고, 테니스의 교훈대로 컨테이너는 `height: 0` 기본 숨김.
-- EEA·영국·스위스 트래픽에는 Google 인증 CMP가 필요하다. 자체 쿠키 배너 대신 AdSense 콘솔의 "개인정보 보호 및 메시지" GDPR 메시지를 켠다. privacy.html이 그 동의 절차를 전제로 쓰여 있다.
+- 2026-11-06 AdSense 사이트 추가·소유권 확인·검토 요청 완료(상태 "준비 중").
+- EEA·영국·스위스 동의는 자체 배너 없이 AdSense "개인정보 보호 및 메시지"의 유럽 규정 메시지로 처리한다. 사이트별 개인정보처리방침 URL은 https://candle-calculator.com/privacy로 지정해 게시했다.
 - GA4는 미연동. 넣으려면 테니스 ID를 재사용하지 말고 새 속성을 만들 것.
+
+## 분석·검색
+
+- Cloudflare Web Analytics를 Pages 프로젝트 Metrics 탭에서 켰다. 측정 스크립트는 배포 때 Pages가 자동 삽입하므로 HTML에 직접 넣지 않는다. 쿠키를 쓰지 않으며 privacy.html에 고지했다.
+- Search Console은 도메인 속성(sc-domain:candle-calculator.com). 소유권 확인용 TXT 레코드가 Cloudflare DNS에 있으니 지우지 말 것. sitemap.xml 제출, 홈페이지 색인 요청 완료.
