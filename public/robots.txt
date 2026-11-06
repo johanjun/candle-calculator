@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://candle-calculator.pages.dev/sitemap.xml

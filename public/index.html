@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-i18n="title">Candle Wax &amp; Fragrance Oil Calculator | Free, no sign-up</title>
+    <meta name="description" data-i18n-content="metaDesc" content="Work out how much wax and fragrance oil to weigh for any number of candles. Enter your jar size and fragrance load, get grams and ounces.">
+    <link rel="canonical" href="https://candle-calculator.pages.dev/">
+    <link rel="alternate" hreflang="en" href="https://candle-calculator.pages.dev/">
+    <link rel="alternate" hreflang="de" href="https://candle-calculator.pages.dev/?lang=de">
+    <link rel="alternate" hreflang="fr" href="https://candle-calculator.pages.dev/?lang=fr">
+    <link rel="alternate" hreflang="ja" href="https://candle-calculator.pages.dev/?lang=ja">
+    <link rel="alternate" hreflang="x-default" href="https://candle-calculator.pages.dev/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://candle-calculator.pages.dev/">
+    <meta property="og:title" content="Candle Wax &amp; Fragrance Oil Calculator">
+    <meta property="og:description" content="Grams and ounces of wax and fragrance oil for any number of candles. Free, no sign-up.">
+    <meta name="twitter:card" content="summary">
+    <meta name="theme-color" content="#E9ECF1" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#171B24" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕯️</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Candle Calculator",
+        "url": "https://candle-calculator.pages.dev/",
+        "description": "Free calculator for candle wax and fragrance oil amounts by jar size and fragrance load.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "inLanguage": ["en", "de", "fr", "ja"],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    }
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9629441899884488" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="site">
+            <a class="brand" href="./"><span aria-hidden="true">🕯️</span> <span data-i18n="siteName">Candle Calculator</span></a>
+            <label class="lang">
+                <span class="sr-only" data-i18n="langLabel">Language</span>
+                <select id="lang">
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                    <option value="ja">日本語</option>
+                </select>
+            </label>
+        </header>
+
+        <main>
+            <div class="intro">
+                <h1 data-i18n="h1">Wax and fragrance oil calculator</h1>
+                <p data-i18n="lede">Enter your jar size and fragrance load. You'll get the grams and ounces to put on the scale.</p>
+            </div>
+
+            <div class="tool">
+                <form id="calc" novalidate>
+                    <div class="field">
+                        <label for="count" data-i18n="labelCount">Number of candles</label>
+                        <input id="count" name="count" type="number" inputmode="numeric" min="1" step="1" value="6" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="fill" id="label-fill" data-i18n="labelFill">Fill per candle</label>
+                        <div class="pair">
+                            <input id="fill" name="fill" type="number" inputmode="decimal" min="0.01" step="any" value="8" required aria-describedby="hint-fill">
+                            <select name="unit" aria-labelledby="label-fill">
+                                <option value="floz" data-i18n="unitFloz">fl oz (jar volume)</option>
+                                <option value="ml" data-i18n="unitMl">ml (jar volume)</option>
+                                <option value="oz" data-i18n="unitOz">oz (weight)</option>
+                                <option value="g" data-i18n="unitG">g (weight)</option>
+                            </select>
+                        </div>
+                        <p class="hint" id="hint-fill" data-i18n="hintFill">Measure up to where you'll pour, not to the brim. Volume converts at 0.86 g of wax per ml.</p>
+                    </div>
+
+                    <div class="field">
+                        <label for="load" data-i18n="labelLoad">Fragrance load</label>
+                        <div class="pair pct">
+                            <input id="load" name="load" type="number" inputmode="decimal" min="0" max="15" step="any" value="8" required aria-describedby="hint-load">
+                            <span aria-hidden="true">%</span>
+                        </div>
+                        <p class="hint" id="hint-load" data-i18n="hintLoad">Most waxes hold 6–10%. Check your wax's maximum before going higher.</p>
+                    </div>
+
+                    <fieldset class="field">
+                        <legend data-i18n="legendMethod">Fragrance load is a percentage of</legend>
+                        <label class="radio"><input type="radio" name="method" value="wax" checked> <span data-i18n="methodWax">wax weight (most suppliers)</span></label>
+                        <label class="radio"><input type="radio" name="method" value="total"> <span data-i18n="methodTotal">total weight</span></label>
+                    </fieldset>
+                </form>
+
+                <section class="recipe" aria-labelledby="recipe-title">
+                    <h2 id="recipe-title" data-i18n="resultsTitle">What to weigh</h2>
+                    <div class="recipe-body">
+                        <svg class="jar" viewBox="0 0 120 170" aria-hidden="true">
+                            <defs><clipPath id="jar-clip"><rect x="14" y="40" width="92" height="120" rx="14"/></clipPath></defs>
+                            <g clip-path="url(#jar-clip)">
+                                <rect class="jar-wax" x="0" y="56" width="120" height="104"/>
+                                <rect class="jar-oil" id="jar-oil" x="0" y="56" width="120" height="8"/>
+                            </g>
+                            <rect class="jar-glass" x="14" y="40" width="92" height="120" rx="14"/>
+                            <line class="jar-wick" x1="60" y1="56" x2="60" y2="38"/>
+                            <path class="jar-flame" d="M60 6 C69 20 71 29 60 36 C49 29 51 20 60 6Z"/>
+                        </svg>
+                        <dl class="amounts" aria-live="polite">
+                            <div class="amount">
+                                <dt><span class="swatch wax" aria-hidden="true"></span><span data-i18n="resWax">Wax</span></dt>
+                                <dd><span class="big" id="out-wax">—</span><span class="small" id="out-wax-oz"></span></dd>
+                            </div>
+                            <div class="amount">
+                                <dt><span class="swatch oil" aria-hidden="true"></span><span data-i18n="resFo">Fragrance oil</span></dt>
+                                <dd><span class="big" id="out-fo">—</span><span class="small" id="out-fo-oz"></span></dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <p class="each" id="out-each"></p>
+                    <div class="actions">
+                        <button type="button" id="copy" data-i18n="copyLink">Copy link</button>
+                        <button type="button" id="print" data-i18n="print">Print</button>
+                    </div>
+                </section>
+            </div>
+
+            <section class="notes">
+                <h2 data-i18n="howTitle">How it's calculated</h2>
+                <ul>
+                    <li data-i18n="how1">Volume is turned into wax weight at 0.86 g per ml, the figure most suppliers use for soy and paraffin.</li>
+                    <li data-i18n="how2">With load as a % of wax weight: wax = fill ÷ (1 + load), fragrance oil = wax × load.</li>
+                    <li data-i18n="how3">With load as a % of total weight: fragrance oil = fill × load, wax = fill − fragrance oil.</li>
+                    <li data-i18n="how4">Weigh fragrance oil on a scale. Oils vary in density, so a measuring cup won't give you the right amount.</li>
+                </ul>
+
+                <h2 data-i18n="faqTitle">Questions</h2>
+                <details>
+                    <summary data-i18n="q1">How much fragrance oil goes in an 8 oz candle?</summary>
+                    <p data-i18n="a1">An 8 fl oz jar holds about 203 g of wax. At an 8% load measured against wax weight, that's about 15 g (0.53 oz) of fragrance oil and 188 g (6.65 oz) of wax.</p>
+                </details>
+                <details>
+                    <summary data-i18n="q2">What fragrance load should I use?</summary>
+                    <p data-i18n="a2">Start at 6–8% for most soy and paraffin blends. Many waxes accept up to 10 or 12%, but past your wax's limit the oil seeps out onto the surface, which makers call sweating. Your supplier lists the maximum on the product page.</p>
+                </details>
+                <details>
+                    <summary data-i18n="q3">Is the load a percentage of the wax or of the whole candle?</summary>
+                    <p data-i18n="a3">Most suppliers mean the wax weight: an 8% load is 8 g of oil per 100 g of wax. Some makers calculate against the total weight instead, which gives slightly more oil. Pick the convention your recipe or supplier uses.</p>
+                </details>
+                <details>
+                    <summary data-i18n="q4">Why does my jar hold less wax than its fl oz size?</summary>
+                    <p data-i18n="a4">Fl oz measures volume, and wax is lighter than water. One fluid ounce of melted wax weighs about 0.9 oz, so an 8 fl oz jar takes roughly 7.2 oz of wax. Jars are also sold by brim capacity, and you'll pour below the rim.</p>
+                </details>
+            </section>
+        </main>
+
+        <footer class="site">
+            <nav>
+                <a href="./" data-i18n="footerHome">Calculator</a>
+                <a href="privacy.html" data-i18n="footerPrivacy">Privacy</a>
+                <a href="terms.html" data-i18n="footerTerms">Terms</a>
+            </nav>
+            <p data-i18n="footerNote">Results are estimates. Follow your wax and fragrance supplier's safety guidance.</p>
+        </footer>
+    </div>
+</body>
+</html>
